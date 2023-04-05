@@ -1,6 +1,6 @@
 // Récupération des mots de passe depuis le stockage local
-var adminPassword = localStorage.getItem("adminPassword");
-var voterPassword = localStorage.getItem("voterPassword");
+var adminPassword = localStorage.getItem("AdminRoméo2323");
+var voterPassword = localStorage.getItem("eleve123");
 
 // Gestionnaire d'événements pour le bouton "Se connecter"
 document.getElementById("connect-button").addEventListener("click", function() {
