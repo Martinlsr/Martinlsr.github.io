@@ -1,15 +1,15 @@
-// Stockage des mots de passe
-var passwords = {
-	"AdminRomeo2323": "admin.html",
-	"eleve123": "vote.html"
-	};
-	
-	// Récupération de la valeur de l'input de mot de passe
+// Gestionnaire d'événements pour le bouton "Se connecter"
+document.getElementById("connect-button").addEventListener("click", function() {
 	var password = document.getElementById("password").value;
 	
-	// Vérification du mot de passe
-	if (passwords.hasOwnProperty(password)) {
-	window.location.href = passwords[password];
+	if (password === "AdminRomeo2323") {
+		// Rediriger vers la page d'administration
+		window.location.href = "admin.html";
+	} else if (password === "eleve123") {
+		// Rediriger vers la page de vote
+		window.location.href = "vote.html";
 	} else {
-	alert("Mot de passe incorrect !");
+		// Afficher un message d'erreur si le mot de passe est incorrect
+		alert("Mot de passe incorrect !");
 	}
+});
