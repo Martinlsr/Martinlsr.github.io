@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interface Administrateur</title>
+	<style>
+		/* Styles pour la mise en forme de la page d'administration */
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #F5F5F5;
+		}
+
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #FFFFFF;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+
+		h1 {
+			text-align: center;
+			margin-top: 0;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-top: 20px;
+		}
+
+		th, td {
+			padding: 10px;
+			text-align: center;
+			border-bottom: 1px solid #ddd;
+		}
+
+		th {
+			background-color: #f2f2f2;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Résultats du vote</h1>
+        <form>
+            <label for="new-option">Nouvelle option de vote :</label>
+            <input type="text" id="new-option" name="new-option">
+            <button onclick="addOption()">Ajouter</button>
+        </form>
+		<table>
+			<thead>
+				<tr>
+					<th>Option</th>
+					<th>Nombre de votes</th>
+				</tr>
+			</thead>
+			<tbody id="results">
+			</tbody>
+		</table>
+	</div>
+	<script src="admin.js"></script>
+</body>
+</html>
