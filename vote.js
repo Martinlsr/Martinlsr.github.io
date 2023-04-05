@@ -1,7 +1,3 @@
-// Configuration
-var password = "eleve123"; // Mot de passe pour les votants
-var adminPassword = "AdminRoméo2323"; // Mot de passe pour les admins
-
 // Options de vote
 var options = [
 ];
