@@ -6,7 +6,7 @@ var options = [
 var voteForm = document.getElementById("vote-form");
 
 function getVoteOptions() {
-    fetch("options.json")
+    fetch("vote.json")
         .then(function(response) {
             return response.json();
         })
