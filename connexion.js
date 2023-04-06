@@ -2,7 +2,7 @@
 document.getElementById("connect-button").addEventListener("click", function() {
 	var password = document.getElementById("password").value;
 	
-	if (password === "AdminRomeo2323") {
+	if (password === "AdminPresident2PAJ") {
 		// Rediriger vers la page d'administration
 		window.location.href = "admin.html";
 	} else if (password === "eleve123") {

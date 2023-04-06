@@ -13,78 +13,57 @@ for (var option in results) {
 	row.appendChild(countCell);
 	resultsTable.appendChild(row);
 }
-// Récupérer les options de vote
-fetch('vote.js')
-	.then(response => response.js())
-	.then(options => {
-		// Récupérer le menu déroulant
-		const select = document.getElementById('vote-option');
-		
-		    // Vider le menu déroulant s'il contient déjà des options
-            while (select.firstChild) {
-                select.removeChild(select.firstChild);
-            }
-            
-            // Ajouter les options au menu déroulant
-            options.forEach(option => {
-                const optionElement = document.createElement('option');
-                optionElement.textContent = option;
-                select.appendChild(optionElement);
-            });
-            
-            // Vérifier si l'utilisateur est un administrateur
-            const isAdmin = localStorage.getItem("isAdmin");
-            if (isAdmin) {
-                // Afficher le formulaire de vote pour les administrateurs
-                const adminForm = document.createElement('form');
-                adminForm.id = "admin-vote-form";
-                
-                const adminLabel = document.createElement('label');
-                adminLabel.setAttribute('for', 'admin-vote-option');
-                adminLabel.textContent = "Ajouter une option :";
-                
-                const adminInput = document.createElement('input');
-                adminInput.type = "text";
-                adminInput.id = "admin-vote-option";
-                
-                const adminButton = document.createElement('input');
-                adminButton.type = "button";
-                adminButton.value = "Ajouter";
-                adminButton.addEventListener("click", addOption);
-                
-                adminForm.appendChild(adminLabel);
-                adminForm.appendChild(adminInput);
-                adminForm.appendChild(adminButton);
-                resultsTable.parentElement.appendChild(adminForm);
-                
-                function addOption() {
-                    const newOption = document.getElementById("admin-vote-option").value;
-                    if (newOption) {
-                        // Ajouter l'option au menu déroulant
-                        const select = document.getElementById("vote-option");
-                        const optionElement = document.createElement("option");
-                        optionElement.textContent = newOption;
-                        select.appendChild(optionElement);
-                
-                        // Ajouter l'option aux résultats
-                        let results = JSON.parse(localStorage.getItem("results")) || {};
-                        results[newOption] = 0;
-                        localStorage.setItem("results", JSON.stringify(results));
-                
-                        // Afficher les résultats des votes
-                        const resultsTable = document.getElementById("results");
-                        const row = document.createElement("tr");
-                        const optionCell = document.createElement("td");
-                        const countCell = document.createElement("td");
-                        optionCell.textContent = newOption;
-                        countCell.textContent = 0;
-                        row.appendChild(optionCell);
-                        row.appendChild(countCell);
-                        resultsTable.appendChild(row);
-                
-                        // Vider l'input
-                        document.getElementById("admin-vote-option").value = "";
-                    }
-                }
-            }
-        });
+
+function castVote() {
+    // Récupérer l'option choisie
+    const select = document.getElementById("vote-option");
+    const selectedOption = select.options[select.selectedIndex].value;
+    
+    // Mettre à jour les résultats
+    let results = JSON.parse(localStorage.getItem("results")) || {};
+    results[selectedOption] += 1;
+    localStorage.setItem("results", JSON.stringify(results));
+}
+
+// Ajouter un événement click sur le bouton de vote
+const voteButton = document.getElementById("vote-button");
+voteButton.addEventListener("click", castVote);
+
+function addOption() {
+    const newOption = document.getElementById("new-option").value;
+    if (newOption) {
+        // Ajouter l'option au menu déroulant
+        const select = document.getElementById("vote-option");
+        const optionElement = document.createElement("option");
+        optionElement.textContent = newOption;
+        select.appendChild(optionElement);
+
+        // Ajouter l'option aux résultats
+        let results = JSON.parse(localStorage.getItem("results")) || {};
+        results[newOption] = 0;
+        localStorage.setItem("results", JSON.stringify(results));
+
+        // Afficher les résultats des votes
+        const resultsTable = document.getElementById("results");
+        const row = document.createElement("tr");
+        const optionCell = document.createElement("td");
+        const countCell = document.createElement("td");
+        optionCell.innerText = newOption;
+        countCell.innerText = results[newOption];
+        row.appendChild(optionCell);
+        row.appendChild(countCell);
+        resultsTable.appendChild(row);
+
+        // Vider l'input
+        document.getElementById("new-option").value = "";
+
+        // Mettre à jour l'affichage des résultats sur la page de vote
+        const voteResults = document.getElementById("vote-results");
+        voteResults.innerHTML = "";
+        for (var option in results) {
+            const optionResult = document.createElement("div");
+            optionResult.innerText = option + ": " + results[option];
+            voteResults.appendChild(optionResult);
+        }
+    }
+}
