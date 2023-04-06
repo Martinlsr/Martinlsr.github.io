@@ -42,6 +42,13 @@
 	</style>
 </head>
 <body>
+	<form id="vote-form">
+		<label for="vote-option">Choisissez une option :</label><br>
+		<select id="vote-option" name="vote-option">
+			<!-- Les options de vote seront ajoutées par JavaScript -->
+		</select><br>
+		<input type="submit" value="Voter">
+	</form>
 	<div class="container">
 		<h1>Résultats du vote</h1>
 		<div>
@@ -60,14 +67,7 @@
 				<tbody id="results">
 				</tbody>
 			</table>
-		</div>
-		<form id="vote-form">
-			<label for="vote-option">Choisissez une option :</label><br>
-			<select id="vote-option" name="vote-option">
-				<!-- Les options de vote seront ajoutées par JavaScript -->
-			</select><br>
-			<input type="submit" value="Voter">
-		</form>		
+		</div>		
 	<script src="admin.js"></script>
 </body>
 </html>
