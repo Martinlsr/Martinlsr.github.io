@@ -6,14 +6,14 @@ document.addEventListener("DOMContentLoaded", function() {
     // Afficher les résultats des votes
     var resultsTable = document.getElementById("results");
     for (var option in results) {
-      var row = document.createElement("tr");
-      var optionCell = document.createElement("td");
-      var countCell = document.createElement("td");
-      optionCell.innerText = option;
-      countCell.innerText = results[option];
-      row.appendChild(optionCell);
-      row.appendChild(countCell);
-      resultsTable.appendChild(row);
+        var row = document.createElement("tr");
+        var optionCell = document.createElement("td");
+        var countCell = document.createElement("td");
+        optionCell.innerText = option;
+        countCell.innerText = results[option];
+        row.appendChild(optionCell);
+        row.appendChild(countCell);
+        resultsTable.appendChild(row);
     }
   
     function castVote() {
@@ -59,15 +59,14 @@ document.addEventListener("DOMContentLoaded", function() {
             // Vider l'input
             document.getElementById("new-option").value = "";
   
-            // Mettre à jour l'affichage des résultats sur la page de vote
-            const voteResults = document.getElementById("vote-results");
-            voteResults.innerHTML = "";
-            for (var option in results) {
-                const optionResult = document.createElement("div");
-                optionResult.innerText = option + ": " + results[option];
-                voteResults.appendChild(optionResult);
-            }
-        }
+            // Ajouter l'option au select des options de vote de la page de vote
+            const voteOptionSelect = document.getElementById("vote-option");
+            const optionElement2 = document.createElement("option");
+            optionElement2.value = newOption;
+            optionElement2.innerHTML = newOption;
+            voteOptionSelect.appendChild(optionElement);
+                    // Vider l'input
+        document.getElementById("new-option").value = "";
     }
-  
-  });  
+}
+});
