@@ -1,27 +1,15 @@
-// Options de vote
-var options = [
-];
+const voteBtn = document.getElementById('vote-btn');
+const voteResult = document.getElementById('vote-result');
 
-// Récupérer le formulaire
-var voteForm = document.getElementById("vote-form");
+voteBtn.addEventListener('click', () => {
+	const selectedOption = document.querySelector('input[name="vote"]:checked');
 
-function getVoteOptions() {
-    fetch("vote.json")
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
-            options = data;
-            const voteOptionSelect = document.getElementById("vote-option");
-            // Vider le select
-            voteOptionSelect.innerHTML = "";
-            // Ajouter les options de vote au select
-            for (var i = 0; i < options.length; i++) {
-                var option = options[i];
-                var optionElement = document.createElement("option");
-                optionElement.value = option;
-                optionElement.innerHTML = option;
-                voteOptionSelect.appendChild(optionElement);
-            }
-        });
-}
+	if (selectedOption) {
+		const vote = selectedOption.value;
+		voteResult.textContent = `Vous avez voté pour "${vote}"`;
+		selectedOption.disabled = true;
+		voteBtn.disabled = true;
+	} else {
+		alert('Veuillez sélectionner une option de vote.');
+	}
+});

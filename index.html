@@ -54,6 +54,10 @@
 		button:hover {
 			background-color: #222;
 		}
+
+		button[type="submit"] {
+			box-shadow: 2px 5px 7px rgb(177, 176, 176);
+		} 
 	</style>
 </head>
 <body>
@@ -61,7 +65,7 @@
 		<h1>Page de connexion</h1>
 		<label for="password">Mot de passe :</label>
 		<input type="password" id="password" name="password"><br>
-		<button id="connect-button">Se connecter</button>
+		<button type="submit" id="connect-button">Se connecter</button>
 	</div>
 	
 	<script src="connexion.js"></script>
