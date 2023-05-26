@@ -1,73 +1,95 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Page de connexion</title>
-	<style>
-		body {
-			margin: 0;
-			padding: 0;
-			background-color: #f0f0f0;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			height: 100vh;
-		}
-		
-		.container {
-			background-color: #fff;
-			padding: 20px;
-			border-radius: 10px;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-			text-align: center;
-		}
-		
-		h1 {
-			font-size: 2em;
-			margin-top: 0;
-		}
-		
-		label {
-			display: block;
-			margin-bottom: 10px;
-		}
-		
-		input[type="password"] {
-			padding: 10px;
-			border-radius: 5px;
-			border: none;
-			box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-			font-size: 1.2em;
-		}
-		
-		button {
-			background-color: #1a1a1a;
-			color: #fff;
-			padding: 10px 20px;
-			border: none;
-			border-radius: 5px;
-			font-size: 1.2em;
-			margin-top: 10px;
-			cursor: pointer;
-		}
-		
-		button:hover {
-			background-color: #222;
-		}
+<title>Oxfamnesty</title>
+<link rel="icon" href="téléchargement.jfif" />
+<style>
+a {
+  display: inline-block;
+}
 
-		button[type="submit"] {
-			box-shadow: 2px 5px 7px rgb(177, 176, 176);
-		} 
-	</style>
+img {
+  width: 50px; /* Ajustez la taille du logo selon vos besoins */
+  height: 50px;
+}
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #64a433;
+  padding: 10px;
+  z-index: 9999;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  display: inline-block;
+}
+
+.menu li a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.menu li a:hover {
+  background-color: #c9cb35;
+  transform: scale(1.1);
+}
+
+.menu li a:active {
+  background-color: #777;
+}
+
+.menu li a:focus {
+  outline: none;
+}
+
+body {
+  margin: 0;
+  padding-top: 50px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 100px;
+}
+h2 {
+  margin-top: 100px;
+  padding-left: 20px;
+}
+p {
+  text-align: left;
+  padding-left: 20px;
+}
+.custom-font {
+  font-family: 'Arial', sans-serif;
+}
+</style>
 </head>
 <body>
-	<div class="container">
-		<h1>Page de connexion</h1>
-		<label for="password">Mot de passe :</label>
-		<input type="password" id="password" name="password"><br>
-		<button type="submit" id="connect-button">Se connecter</button>
-	</div>
-	
-	<script src="connexion.js"></script>
-</body>
+  <center>
+      <nav class="menu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="audioguide.html">Audioguide</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </center> 
+    <h1>Bonjour et bienvenue sur le site de l'atelier Oxfamnesty</h1>
+    <br></br>
+    <div>
+      <h2>Infos</h2>
+      <p class="custom-font">La Journées Portes Ouvertes à lieu le : Samedi 27 mai</p>
+    </div>
+  </body>
 </html>
